@@ -1,0 +1,495 @@
+:root {
+  --mirage: #181e2e;
+  --gray-nickel: #bfc0be;
+  --shingle-fawn: #694c34;
+  --gray-nurse: #dae2e6;
+  --rolling-stone: #72787f;
+  --shadow: #8e7147;
+  --geyser: #dae2e6;
+  --sandal: #008F39;
+  --tasman: #1a2b5c;
+  --mountain-mist: #8c8b91;
+  --blue-dark: #1a2b5c;
+  --gold: #D4AF37;
+  --white: #FFFFFF;
+  --gray-bg: var(--white);
+  --text-dark: #2E2E2E;
+  --text-muted: #666;
+}
+
+/* === Reset básico === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Estilo del body con imagen de fondo === */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url('assets/img/fondo.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 1rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* === Enlaces e imágenes === */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Menú Hamburguesa - Responsive === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  position: relative;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+.bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10000;
+  }
+  .menu {
+    position: fixed;
+    top: 50px;
+    right: 2rem;
+    background-color: transparent;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    min-width: 160px;
+    z-index: 10001;
+    opacity: 1;
+  }
+  .menu.active {
+    max-height: 400px;
+    padding: 1rem 0;
+  }
+  .menu li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .menu a.btn-menu {
+    color: white;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    background: var(--gold);
+    text-align: center;
+  }
+  .menu a.btn-menu:hover,
+  .menu a.btn-menu:focus {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateX(-5px);
+    color: black;
+  }
+  .menu a.btn-menu:active {
+    background: var(--gold);
+    transform: scale(0.95);
+    color: white;
+  }
+}
+
+/* === Menú principal - Botones centrados (escritorio) === */
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  padding: 0;
+}
+.btn-menu {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  background: var(--gold);
+}
+.btn-menu:hover {
+  background-color: #1a2b5c;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-menu:active {
+  background-color: #1a2b5c;
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* === Hero Section === */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: transparent;
+}
+.hero-content {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* === Botón primario === */
+.btn-primary {
+  background: var(--gold);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary:hover {
+  background-color: #1a2b5c;
+}
+
+/* === Contenedor de servicios - Fondo transparente === */
+.contenedor-servicios {
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  background-color: transparent;
+}
+.tarjeta {
+  background: white;
+  color: var(--text-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1 1 300px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+.tarjeta h3 {
+  color: var(--gold);
+}
+
+/* === Pasos - ¿Cómo funciona? === */
+.pasos {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.paso {
+  background: var(--tasman);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.paso:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.paso h3 {
+  color: var(--gold);
+}
+.paso ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.paso li::before {
+  content: "•";
+  color: var(--gold);
+  margin-right: 0.5rem;
+}
+.paso-numero {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: var(--gold);
+  color: white;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+/* === Tarjetas de fotos === */
+.tarjetas-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+  width: 100%;
+  margin: 1rem auto;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.card-body {
+  padding: 1.5rem;
+}
+.card-body h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+.card-body p,
+.card-body ul {
+  font-size: 0.95rem;
+  color: var(--mountain-mist);
+  line-height: 1.5;
+}
+.card-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+.card-body li::before {
+  content: "• ";
+  color: var(--gold);
+}
+
+/* === Modal === */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+.modal-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  max-width: 500px;
+  width: 90%;
+}
+.modal-close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: #000;
+}
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* === Mensaje de éxito === */
+.mensaje-exito {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem 2rem;
+  border-left: 4px solid #28a745;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  animation: mostrarMensaje 0.4s ease-out forwards;
+}
+.exito-cerrar {
+  float: right;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  color: #155724;
+}
+@keyframes mostrarMensaje {
+  from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* === Botón flotante - Formulario (abajo) === */
+.floating-btn-fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 0.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* === Botón flotante - WhatsApp (arriba) === */
+.floating-whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 9998;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 0.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+/* === Ocultar el botón de AR del model-viewer === */
+.ar-button,
+[ar-button],
+button[aria-label="Activate augmented reality"] {
+  display: none !important;
+}
+
+/* === Estilo personalizado para campos en foco === */
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.6);
+  border-color: var(--gold);
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.6);
+}
+
+/* === Texto introductorio dorado === */
+.texto-dorado {
+  color: var(--gold);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+/* === Alineación a la izquierda === */
+.paso.paso-izquierda {
+  text-align: left;
+}
+.paso.paso-izquierda h3,
+.paso.paso-izquierda ul,
+.paso.paso-izquierda li {
+  text-align: left !important;
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* === Botón activo - Página actual === */
+.btn-menu.active-link {
+  background-color: #1a2b5c !important;
+  color: white;
+  font-weight: bold;
+}
+
+/* === Hover en botones del menú === */
+.btn-menu:hover {
+  background-color: rgba(26, 43, 92, 0.8);
+  color: white;
+  transform: translateX(-5px);
+}
+
+/* === Activo === */
+.btn-menu:active {
+  background: var(--gold);
+  transform: scale(0.95);
+  color: white;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SENTENCIAS & CONSULTORES</title>
+<link rel="stylesheet" href="styles.css" />
+<!-- Cargar model-viewer -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!-- Cargar EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Inicializar EmailJS -->
+<script type="text/javascript">
+(function () {
+emailjs.init("ckumMuqPUV7STCQ-v");
+})();
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body>
+<!-- Menú de navegación -->
+<header>
+<nav class="navbar">
+<button class="hamburger" id="hamburger">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<ul class="menu" id="nav-menu">
+<li><a href="index.html" class="btn-menu">Inicio</a></li>
+<li><a href="servicios.html" class="btn-menu">Servicios</a></li>
+<li><a href="como-funciona.html" class="btn-menu">¿Cómo funciona?</a></li>
+<li><a href="acerca-de.html" class="btn-menu">Acerca de</a></li>
+<li><a href="contacto.html" class="btn-menu">Contacto</a></li>
+</ul>
+</nav>
+</header>
+<!-- Hero Section - Logo Institucional -->
+<section class="hero hero-logo-3d">
+<div class="hero-content">
+<!-- Modelo 3D -->
+<model-viewer
+id="modelo-3d"
+src="modelo/escudo-institucional.glb"
+alt="Logo SENTENCIAS & CONSULTORES"
+autoplay
+disable-tilt
+auto-rotate
+background-color="transparent"
+style="width: 300px; height: 300px; pointer-events: none; cursor: default;"
+></model-viewer>
+<!-- Botón con logo.png debajo del modelo -->
+<div class="floating-logo-bajo">
+<img src="assets/img/logo.png" alt="Logo SENTENCIAS & CONSULTORES" class="logo-flotante-img" />
+</div>
+<!-- Texto único de Inicio -->
+<p class="texto-dorado" style="text-align: justify">
+Ofrecemos soluciones integrales en derecho administrativo, laboral y civil y litigación estratégica, enfocadas en brindar resultados claros, seguros y totalmente respaldados desde el punto de vista legal; Para su obtención de liquidez, le ofrecemos la compra de su sentencia de reparación directa y nulidad y restablecimiento del derecho en un proceso no mayor a 3 meses
+</p>
+</div>
+</section>
+<!-- Overlay y Modal de contacto -->
+<div class="overlay" id="overlay"></div>
+<div class="modal-form" id="modal-contacto">
+<span class="modal-close">×</span>
+<h2>Contáctanos</h2>
+<form id="form-contacto">
+<input type="text" id="nombre" placeholder="Tu nombre" required />
+<input type="email" id="email" placeholder="Correo electrónico" required />
+<input type="tel" id="telefono" placeholder="Teléfono (opcional)" />
+<textarea id="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
+<button type="submit">Enviar</button>
+</form>
+</div>
+<!-- Mensaje de éxito -->
+<div class="mensaje-exito" id="mensaje-exito">
+✅ Tu asesoría se ha solicitado. Nos contactaremos contigo pronto.
+<span class="exito-cerrar">×</span>
+</div>
+<!-- Botón flotante - WhatsApp (arriba) -->
+<a
+href="https://wa.me/573053386012?text=Hola,%20vi%20el%20sitio%20y%20necesito%20una%20asesoría."
+target="_blank"
+rel="noopener noreferrer"
+class="floating-whatsapp"
+style="right: 5px; bottom: 70px; font-size: 2rem; padding: 0.8rem 0.3rem;"
+aria-label="Chatea por WhatsApp"
+>
+<img src="assets/img/whatsapp.png" alt="WhatsApp" width="30" style="vertical-align: middle;">
+</a>
+<!-- Botón flotante - Formulario (abajo) -->
+<a
+href="#contacto"
+class="floating-btn-fixed"
+id="contacto"
+style="right: 10px; bottom: 10px; font-size: 2rem; padding: 0.8rem 0.3rem;"
+>
+✉️
+</a>
+<!-- Script principal -->
+<script src="scripts.js"></script>
+</body>
+</html>
